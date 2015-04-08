@@ -1,7 +1,10 @@
+// 声明是Android程序
 apply plugin: 'com.android.application'
 
 android {
+    // 编译SDK的版本
     compileSdkVersion 22
+    // build tools的版本
     buildToolsVersion "20.0.0"
 
     defaultConfig {
@@ -17,13 +20,20 @@ android {
     }
 
     buildTypes {
+        debug {
+            // debug模式
+        }
         release {
+            // 是否进行混淆
             minifyEnabled false
+            // 混淆文件的位置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
+    // 编译libs目录下的所有jar包
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':sharelibrary')
 }
